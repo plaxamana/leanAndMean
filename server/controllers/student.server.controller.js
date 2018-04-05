@@ -20,6 +20,7 @@ exports.signup = function(req, res, next) {
 
     Student.addStudent(newStudent, (err, student) => {
         if(err){
+            console.log(err);
             res.json({sucess: false, msg: 'Failed to register student'})
        } else {
            res.json({success: true, msg: 'Student registered'})
@@ -48,7 +49,7 @@ exports.signin = function(req, res, next){
                 res.json({
                     success: true,
                     token: 'Bearer ' + token,
-                    user: {
+                    student: {
                         id: student._id,
                         name: student.name,
                         studentNum: student.studentNum,
