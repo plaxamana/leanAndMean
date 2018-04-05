@@ -56,10 +56,10 @@ module.exports = function () {
         res.send('invalid enpoint')
     });
 
-    // // Will uncomment later
-    // app.all('*', (req, res) => {
-    //     res.sendFile(path.resolve(__dirname, '../public/index.html'));
-    // })
+    // Static folder routing
+    app.all('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../public/index.html'));
+    })
 
     return app;
 }

@@ -6,27 +6,27 @@ import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class AuthService {
   authToken: any;
-  user: any;
+  student: any;
 
   constructor(private http: Http) { }
 
   // Register user service
-  registerUser(user){
+  registerUser(student){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     // Sends data to our backend node server
-    return this.http.post('users/register', user, {headers: headers})
+    return this.http.post('http://localhost:3200/students/signup', student, {headers: headers})
     .map(res => res.json());
   }
 
   // Authenticate uiser service
-  authenticateUser(user){
+  authenticateUser(student){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     // Sends data to our backend node server
-    return this.http.post('users/authenticate', user, {headers: headers})
+    return this.http.post('http://localhost:3200/students/signin', student, {headers: headers})
     .map(res => res.json());
   }
 
@@ -42,16 +42,16 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     // Retrieves JSON information from server-side application (VIA NODE)
-    return this.http.get('users/profile', {headers: headers})
+    return this.http.get('http://localhost:3200/students/profile', {headers: headers})
     .map(res => res.json());
   }
 
   // Store user data
-  storeUserData(token, user){
+  storeUserData(token, student){
     localStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(student));
     this.authToken = token;
-    this.user = user;
+    this.student = student;
   }
 
   // Load token - fetch from localstorage
@@ -69,7 +69,7 @@ export class AuthService {
   logout(){
     // Clears credentials
     this.authToken = null;
-    this.user = null;
+    this.student = null;
     localStorage.clear();
   }
 }
