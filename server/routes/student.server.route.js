@@ -12,4 +12,13 @@ module.exports = function (app) {
 
     // Profile Route
     app.route('/students/profile').get(passport.authenticate('jwt', {session: false}), students.getProfile);
+
+    // Add Course Route
+    app.route('/students/add_course').post(students.addCourse);
+
+    // Drop course
+    app.route('/students/drop_course').post(students.dropCourse);
+
+    // List Courses
+    app.route('/students/courses').get(students.getCourses);
 }
