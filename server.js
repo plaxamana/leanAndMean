@@ -5,9 +5,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const configMongoose = require('./config/mongoose');
 const configExp = require('./config/express');
 
-// Will make the configPassport later
-// const configPassport = require('./config/passport');
-
 // Create a new Mongoose connection instance
 const db = configMongoose();
 

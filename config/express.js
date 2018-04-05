@@ -49,16 +49,17 @@ module.exports = function () {
     app.use(express.static(path.join(__dirname, '../public')));
 
     // Load the Routes
-    require('../server/routes/users.server.route.js')(app);
+    require('../server/routes/student.server.route.js')(app);
 
     // index route
     app.get('/', (req, res) => {
         res.send('invalid enpoint')
     });
 
-    app.all('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../public/index.html'));
-    })
+    // // Will uncomment later
+    // app.all('*', (req, res) => {
+    //     res.sendFile(path.resolve(__dirname, '../public/index.html'));
+    // })
 
     return app;
 }
