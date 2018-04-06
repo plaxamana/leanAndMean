@@ -17,6 +17,15 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li *ngIf="authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/courses']">My Courses</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/add_course']">Add Course</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link js-scroll-trigger" [routerLink]="['/drop_course']">Drop Course</a>
+        </li>
+        <li *ngIf="authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link js-scroll-trigger" [routerLink]="['/dashboard']">Dashboard</a>
         </li>
         <li *ngIf="authService.loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">

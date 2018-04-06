@@ -20,6 +20,9 @@ import { AboutComponent } from './components/about/about.component';
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './guards/auth.guard';
+import { AddCourseComponent } from './components/courses/add-course/add-course.component';
+import { DropCourseComponent } from './components/courses/drop-course/drop-course.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 // ROUTING 
 const appRoutes: Routes = [
@@ -28,7 +31,11 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
+  { path: 'add_course', component: AddCourseComponent, canActivate: [AuthGuardService] },
+  { path: 'drop_course', component: DropCourseComponent, canActivate: [AuthGuardService] },
+  { path: 'courses', component: CoursesComponent, canActivate: [AuthGuardService] },
+
 ]
 
 @NgModule({
@@ -41,6 +48,9 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     AboutComponent,
+    AddCourseComponent,
+    DropCourseComponent,
+    CoursesComponent,
   ],
   // MODULES GO HERE
   imports: [

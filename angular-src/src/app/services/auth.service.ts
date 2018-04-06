@@ -20,7 +20,7 @@ export class AuthService {
     .map(res => res.json());
   }
 
-  // Authenticate uiser service
+  // Authenticate user service
   authenticateUser(student){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -71,5 +71,17 @@ export class AuthService {
     this.authToken = null;
     this.student = null;
     localStorage.clear();
+  }
+
+  /* COURSES */
+
+  // Register user service
+  registerCourse(course){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    // Sends data to our backend node server
+    return this.http.post('http://localhost:3200/students/add_course', course, {headers: headers})
+    .map(res => res.json());
   }
 }

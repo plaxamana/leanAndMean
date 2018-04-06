@@ -1,0 +1,23 @@
+<h2 class="page-header">Add Course</h2>
+<br>
+<form (submit)="onCourseSubmit()">
+<div class="form-row">
+  <div class="col-3 form-group">
+      <label>Course Code</label>
+      <input type="text" [(ngModel)]="courseCode" name="courseCode" class="form-control">
+  </div>
+  <div class="col-3 form-group">
+      <label>Course Name</label>
+      <input type="text" [(ngModel)]="courseName" name="courseName" class="form-control">
+  </div>
+  <div class="col-3 form-group">
+      <label>Section</label>
+      <input type="text" [(ngModel)]="section" name="section" class="form-control">
+  </div>
+  <div class="col-3 form-group">
+      <label>Semester</label>
+      <input type="text" [(ngModel)]="semester" name="semester" class="form-control">
+  </div>
+</div>
+<input type="submit" class="btn btn-primary" value="Submit">
+</form>

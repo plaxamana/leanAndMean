@@ -2,11 +2,11 @@
   <h1 class="display-4">EveRy University</h1>
   <p class="lead">At EveRy University, we want you to pay us. You will not not regret it. Everyone knows that the reason you go to college is for money. College means a degree, a degree means a job, and a job means money. With EveRy, we can guarantee that we might get you to the degree part.</p>
   <hr class="my-4">
-  <p>Please register or login.</p>
+  <p *ngIf="!authService.loggedIn()"> Please register or login.</p>
   <br>
   <div>
-    <button class="btn btn-primary btn-lg" [routerLink]="['/login']" role="button">Login</button>
-    <button class="btn btn-primary btn-lg" [routerLink]="['/register']" role="button">Register</button>
+    <button *ngIf="!authService.loggedIn()" class="btn btn-primary btn-lg" [routerLink]="['/login']" role="button">Login</button>
+    <button *ngIf="!authService.loggedIn()" class="btn btn-primary btn-lg" [routerLink]="['/register']" role="button">Register</button>
   </div>
 </div>
 <div class="row">
