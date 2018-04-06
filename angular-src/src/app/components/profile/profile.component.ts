@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user: Object;
+  student: Object;
 
   // Inject services here
   constructor(
@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   // Load user when initialized
   ngOnInit() {
     this.authService.getProfile().subscribe(profile => {
-      this.user = profile.user;
+      this.student = profile.student;
     },
       err => {
         console.log(err);

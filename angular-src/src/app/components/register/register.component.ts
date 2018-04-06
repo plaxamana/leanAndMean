@@ -10,10 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name: String;
-  username: String;
-  email: String;
+  
+  // Student fields
+  studentNum: String;
   password: String;
+  firstName: String;
+  lastName: String;
+  address: String;
+  city: String;
+  phoneNum: String;
+  email: String;
+  program: String;
 
   // When using a service, it must be injected into the constructor
   // These services are like methods you can use
@@ -28,31 +35,48 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
-    const user = {
-      name: this.name,
+    const student = {
+      studentNum: this.studentNum,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.firstName,
+      address: this.address,
+      city: this.city,
+      phoneNum: this.phoneNum,
       email: this.email,
-      username: this.username,
-      password: this.password
+      program: this.program
     }
 
     const err = [];
 
     // Required Fields
-    if(!this.validateService.validateRegister(user)){
-      if(!user.name){
-        err.push('NAME')
+    if(!this.validateService.validateRegister(student)){
+      if(!student.studentNum){
+        err.push('STUDENT NUMBER')
       }
-
-      if(!user.email){
+      if(!student.password){
+        err.push('PASSWORD')
+      }
+      if(!student.firstName){
+        err.push('FIRST NAME')
+      }
+      if(!student.lastName){
+        err.push('LAST NAME')
+      }
+      if(!student.address){
+        err.push('ADDRESS')
+      }
+      if(!student.city){
+        err.push('CITY')
+      }
+      if(!student.email){
         err.push('EMAIL')
       }
-      
-      if(!user.username){
-        err.push('USERNAME')
+      if(!student.phoneNum){
+        err.push('PHONE NUMBER')
       }
-
-      if(!user.password){
-        err.push('PASSWORD')
+      if(!student.program){
+        err.push('PROGRAM')
       }
 
       this.flashMessage.show('Please fill in all fields: ' + err, {cssClass: 'alert-danger', timeout: 3000});
@@ -60,13 +84,13 @@ export class RegisterComponent implements OnInit {
     } 
 
     // Validate Email
-    if(!this.validateService.validateEmail(user.email)){
+    if(!this.validateService.validateEmail(student.email)){
       this.flashMessage.show('Please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
 
-    // Register User
-    this.authService.registerUser(user)
+    // Register student
+    this.authService.registerUser(student)
     .subscribe(data => {
       if(data.success){
         this.flashMessage.show('You are now registered.  You can now login.', {cssClass: 'alert-success', timeout: 3000});

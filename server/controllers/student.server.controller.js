@@ -52,7 +52,8 @@ exports.signin = function (req, res, next) {
                     token: 'Bearer ' + token,
                     student: {
                         id: student._id,
-                        name: student.name,
+                        firstName: student.firstName,
+                        lastName: student.lastName,
                         studentNum: student.studentNum,
                         email: student.email
                     }
