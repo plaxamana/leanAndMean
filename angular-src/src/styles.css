@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+.course-container {
+    background: #FFF;
+    border-left: 10px solid #093F68;
+    padding: 2em 0;
+}
+
+.course-container a {
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1em;
+    color: #0099FF;
+}
+
+.course-container p {
+    color: #737373;
+}

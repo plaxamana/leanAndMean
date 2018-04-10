@@ -3,6 +3,7 @@ import { ValidateService } from '../../../services/validate.service';
 import { AuthService } from '../../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { Course } from '../../../course';
 
 @Component({
   selector: 'app-add-course',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AddCourseComponent implements OnInit {
 
+  course: Course;
   courseCode: String;
   courseName: String;
   section: String;
@@ -58,11 +60,12 @@ export class AddCourseComponent implements OnInit {
     .subscribe(data => {
       if(data.success){
         this.flashMessage.show('The course has been added.', {cssClass: 'alert-success', timeout: 3000});
-        this.router.navigate(['/courses']);
+        this.router.navigate(['/dashboard']);
       } else {
         this.flashMessage.show('Something went wrong.', {cssClass: 'alert-danger', timeout: 3000});
         this.router.navigate(['/add_course']);
       }
     });
+    
   } // onCourseSubmit() -- end
 }

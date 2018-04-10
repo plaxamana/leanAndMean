@@ -67,7 +67,7 @@ exports.signin = function (req, res, next) {
 
 exports.getProfile = function (req, res, next) {
     // Load the profile
-    res.json({ student: req.student });
+    res.json({student: req.student});
 }
 
 /* COURSES */

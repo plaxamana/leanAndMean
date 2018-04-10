@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Course } from '../course'
 
 @Injectable()
 export class AuthService {
   authToken: any;
   student: any;
+  courses: any;
 
   constructor(private http: Http) { }
 
@@ -84,4 +86,12 @@ export class AuthService {
     return this.http.post('http://localhost:3200/students/add_course', course, {headers: headers})
     .map(res => res.json());
   }
+
+  // Get courses
+  getCourses(){
+    return this.http.get("http://localhost:3200/students/courses")
+    .map(courses => this.courses = courses.json())
+  }
+
+  
 }
