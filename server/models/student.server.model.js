@@ -36,7 +36,13 @@ const StudentSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    courses: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Course'
+        }
+    ]
 });
 
 // Configure the 'UserSchema' to use getters and virtuals when transforming to JSON
