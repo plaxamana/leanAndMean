@@ -18,7 +18,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     // Sends data to our backend node server
-    return this.http.post('http://localhost:3200/students/signup', student, {headers: headers})
+    return this.http.post('students/signup', student, {headers: headers})
     .map(res => res.json());
   }
 
@@ -28,7 +28,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     // Sends data to our backend node server
-    return this.http.post('http://localhost:3200/students/signin', student, {headers: headers})
+    return this.http.post('students/signin', student, {headers: headers})
     .map(res => res.json());
   }
 
@@ -44,7 +44,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     // Retrieves JSON information from server-side application (VIA NODE)
-    return this.http.get('http://localhost:3200/students/profile', {headers: headers})
+    return this.http.get('students/profile', {headers: headers})
     .map(res => res.json());
   }
 
@@ -83,13 +83,13 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
 
     // Sends data to our backend node server
-    return this.http.post('http://localhost:3200/students/add_course', course, {headers: headers})
+    return this.http.post('students/add_course', course, {headers: headers})
     .map(res => res.json());
   }
 
   // Get courses
   getCourses(){
-    return this.http.get("http://localhost:3200/students/courses")
+    return this.http.get("students/courses")
     .map(courses => this.courses = courses.json())
   }
 

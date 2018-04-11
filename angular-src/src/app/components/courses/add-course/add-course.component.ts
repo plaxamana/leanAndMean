@@ -12,7 +12,6 @@ import { Course } from '../../../course';
 })
 export class AddCourseComponent implements OnInit {
 
-  course: Course;
   courseCode: String;
   courseName: String;
   section: String;
